@@ -1,5 +1,12 @@
-const inquirer = require("inquirer");
-const axios = require("axios");
-const fs = require("fs");
+const questions = [
 
-// console.log("Hello world");
+];
+
+function writeToFile(fileName, data) {
+}
+
+function init() {
+
+}
+
+init();
