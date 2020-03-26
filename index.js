@@ -5,7 +5,7 @@ const axios = require("axios");
 const questions = ["what is your Github username?", 
 "What is your project title?", 
 "Please write a description about your project",
-"Would you like a Table of Contents?",
+"What kind of license should your project have?",
 "What commmand should be used to install dependencies?",
 "What do you want the user know about using this repo?",
 "What commmand should be used to run tests?",
@@ -30,7 +30,7 @@ inquirer.prompt([
     },
     {
         type: "input",
-        name: "tableOfContents",
+        name: "license",
         message: questions[3]
     },
     {
