@@ -12,12 +12,61 @@ const questions = ["what is your Github username?",
 "What does the user need to know about contributing to the repo?"
 ];
 
-inquirer.prompt({
+inquirer.prompt([
+    {
         type: "input",
         name: "username",
         message: questions[0]
-    }).then(function({username}) {
-        console.log(username);
+    },
+    {
+        type: "input",
+        name: "title",
+        message: questions[1]
+    },
+    {
+        type: "input",
+        name: "description",
+        message: questions[2]
+    },
+    {
+        type: "input",
+        name: "tableOfContents",
+        message: questions[3]
+    },
+    {
+        type: "input",
+        name: "install",
+        message: questions[4]
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: questions[5]
+    },
+    {
+        type: "input",
+        name: "tests",
+        message: questions[6]
+    },
+    {
+        type: "input",
+        name: "contributions",
+        message: questions[7]
+    }
+]).then(function(data) {
+        // const queryUrl = `https://api.github.com/users/${username}/events/public`;
+
+        console.log(data);
+
+        // axios.get(queryUrl).then(function(res) {
+        //     // const repoNames = res.data.map(function(repo) {
+        //     //   return repo.name;
+        //     // console.log(res);
+        //     });
+    
+
+
+
       });     
 
 // inquirer.prompt([
