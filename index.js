@@ -29,9 +29,16 @@ inquirer.prompt([
         message: questions[2]
     },
     {
-        type: "input",
+        type: "list",
         name: "license",
-        message: questions[3]
+        message: questions[3],
+        choices: [
+            "MIT",
+            "APACHE 2.0", 
+            "GPL 3.0", 
+            "BSD 3",
+            "None"
+          ]
     },
     {
         type: "input",
@@ -54,71 +61,29 @@ inquirer.prompt([
         message: questions[7]
     }
 ]).then(function(data) {
-        // const queryUrl = `https://api.github.com/users/${username}/events/public`;
+    const {username, title, description, license, install, usage, tests, contributions} = data;
+    const queryUrl = `https://api.github.com/users/${username}/events/public`;
 
-        console.log(data);
+    console.log(queryUrl);
 
-        // axios.get(queryUrl).then(function(res) {
-        //     // const repoNames = res.data.map(function(repo) {
-        //     //   return repo.name;
-        //     // console.log(res);
-        //     });
-    
+    axios.get(queryUrl).then(function(res) {
+        console.log(res.data[0].actor.avatar_url);
+    //   const repoNames = res.data.map(function(repo) {
+    //     return repoNames;
+      });
 
+    //   const repoNamesStr = repoNames.join("\n");
 
+    //   fs.writeFile("repos.txt", repoNamesStr, function(err) {
+    //     if (err) {
+    //       throw err;
+    //     }
 
-      });     
+    //     console.log(`Saved ${repoNames.length} repos`);
+    //   });
+    // });
 
-// inquirer.prompt([
-//     {
-//       type: "input",
-//       name: "githubName",
-//       message: questions[0]
-//     },
-//     {
-//         type: "input",
-//         name: "description",
-//         message: questions[0]
-//       },
-    
-//     {
-//       type: "checkbox",
-//       message: "What languages do you know?",
-//       name: "stack",
-//       choices: [
-//         "HTML", 
-//         "CSS", 
-//         "JavaScript", 
-//         "MySQL"
-//       ]
-//     },
-//     {
-//       type: "list",
-//       message: "What is your preferred method of communication?",
-//       name: "contact",
-//       choices: [
-//         "email",
-//         "phone",
-//         "telekinesis"
-//       ]
-//     }
-//   ]).then(function(data) {
-  
-//     var filename = data.name.toLowerCase().split(' ').join('') + ".json";
-  
-//     fs.writeFile(filename, JSON.stringify(data, null, '\t'), function(err) {
-  
-//       if (err) {
-//         return console.log(err);
-//       }
-  
-//       console.log("Success!");
-  
-//     });
-//   });
-  
-
-//  console.log(questions[0]);
-function writeToFile(fileName, data) {
-}
+});
+// function writeToFile(fileName, data) {
+// }
 
