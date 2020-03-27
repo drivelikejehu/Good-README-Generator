@@ -69,7 +69,45 @@ inquirer.prompt([
     axios.get(queryUrl).then(function(res) {
         const avatarUrl = (res.data[0].actor.avatar_url);
         
-        fs.writeFile("README.md", `#${username}`, function(err) {
+        fs.writeFile("README.md", 
+`# ${title}
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+## Description
+        
+${description}
+        
+## Table of Contents
+        
+*[Installation][#installation]
+        
+*[Usage][#usage]
+        
+*[License][#license]
+        
+*[Usage][#usage]
+        
+*[Tests][#tests]
+        
+*[Contributions][#contributions]
+        
+## Installation
+        
+${install}
+
+## Usage
+        
+${usage}
+        
+## Tests
+        
+${tests}
+        
+## Contributions
+        
+${contributions}
+        
+<img src="${avatarUrl}" alt="avatar" style="border-radios: 5px" width="40" />`, function(err) {
             if (err) {
                 return console.log(err);
             }
