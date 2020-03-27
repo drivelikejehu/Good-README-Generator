@@ -69,8 +69,8 @@ inquirer.prompt([
     axios.get(queryUrl).then(function(res) {
         const avatarUrl = (res.data[0].actor.avatar_url);
         
-        fs.writeFile("README.md", 
-`# ${title}
+        fs.writeFile("README.md", `
+# ${title}
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
 ## Description
