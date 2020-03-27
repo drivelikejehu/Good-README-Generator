@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
+// const api = require("./utils/api.js");
+// const generateMarkdown = require(".utils/generateMarkdown.js")
 
 const questions = ["what is your Github username?", 
 "What is your project title?", 
@@ -64,26 +66,14 @@ inquirer.prompt([
     const {username, title, description, license, install, usage, tests, contributions} = data;
     const queryUrl = `https://api.github.com/users/${username}/events/public`;
 
-    console.log(queryUrl);
-
     axios.get(queryUrl).then(function(res) {
-        console.log(res.data[0].actor.avatar_url);
-    //   const repoNames = res.data.map(function(repo) {
-    //     return repoNames;
-      });
+        const avatarUrl = (res.data[0].actor.avatar_url);
+        
+        fs.writeFile("README.md", `#${username}`, function(err) {
+            if (err) {
+                return console.log(err);
+            }
 
-    //   const repoNamesStr = repoNames.join("\n");
-
-    //   fs.writeFile("repos.txt", repoNamesStr, function(err) {
-    //     if (err) {
-    //       throw err;
-    //     }
-
-    //     console.log(`Saved ${repoNames.length} repos`);
-    //   });
-    // });
-
+    });
+  });
 });
-// function writeToFile(fileName, data) {
-// }
-
