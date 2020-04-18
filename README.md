@@ -14,7 +14,7 @@ Download the entire folder to your local machine. Extract and open unzipped fold
 
 ## Challenges
 
-Coming from client-side communication, server-side is a foreign land. There were problems importing certain libraries, and understanding the complexity and scope of promises. IT's part of the pains of a growing developer. Similarly, I am putting much more effort into this markdown file.
+Coming from client-side communication, server-side is a foreign land. There were problems importing certain libraries, and understanding the complexity and scope of promises. It's part of the pains of a growing developer. Similarly, I am putting much more effort into this markdown file.
 
 ## License
 
